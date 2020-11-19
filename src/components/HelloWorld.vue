@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <v-row class="text-center">
+    <v-row justify="center">
       <h2>Тут будет сайт</h2>
     </v-row>
   </v-container>
