@@ -24,13 +24,62 @@ const routes = [
         name : "notes",
         component : () => import('@/components/note/NoteList.vue'),
         props : true,
+      },
+      {
+        path : 'note',
+        name : "note",
+        component : () => import('@/components/note/NoteDetail.vue'),
+        props : true,
+      },
+      {
+        path : 'add-note',
+        name : "add-note",
+        component : () => import('@/components/note/AddNote.vue'),
+        props : true,
+      },
+    ]
+  },
+
+  {
+    path : "/account",
+    name : "account",
+    component: () => import('../views/Account.vue'),
+    children : [
+      {
+        path : "login",
+        name : "login",
+        component : () => import('@/components/account/loginUser.vue'),
+      },
+
+      {
+        path : "register",
+        name : "register",
+        component : () => import('@/components/account/registerUser.vue'),
       }
+    ]
+  },
+
+  {
+    path: '/test',
+    component: () => import('../views/Test.vue'),
+    children : [
+      {
+        path: '',
+        name: 'instanceAxious',
+        component: () => import('@/components/test/instanceAxios.vue')
+      },
+      {
+        path: 'userProfile',
+        name: 'userProfile',
+        component: () => import('@/components/test/jwt-django-test.vue')
+      },
     ]
   },
 
 ]
 
 const router = new VueRouter({
+  mode: 'history',
   routes
 })
 

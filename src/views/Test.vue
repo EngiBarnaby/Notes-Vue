@@ -1,12 +1,13 @@
 <template>
-    <v-container fluid>
+    <div>
         <router-view></router-view>
-    </v-container>
+    </div>
 </template>
 
 <script>
+
 export default {
     
+
 }
 </script>
-
