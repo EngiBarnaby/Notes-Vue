@@ -41,6 +41,18 @@ const routes = [
   },
 
   {
+    path: '/todo',
+    component: () => import('../views/Todo.vue'),
+    children : [
+      {
+        path : '',
+        name : "todo-list",
+        component : () => import('@/components/todo/todoList.vue'),
+      }
+    ]
+  },
+
+  {
     path : "/account",
     name : "account",
     component: () => import('../views/Account.vue'),

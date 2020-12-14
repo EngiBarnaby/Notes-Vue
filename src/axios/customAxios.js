@@ -27,7 +27,7 @@ axiosInstance.interceptors.response.use(
 
         console.log(error);
 
-        if (error.response.status === 401 && originalRequest.url === baseURL+'token/refresh/') {
+        if (error.response.status === 401 && originalRequest.url === baseURL+'api/token/refresh/') {
             window.location.href = '/login/';
             return Promise.reject(error);
         }
@@ -37,21 +37,19 @@ axiosInstance.interceptors.response.use(
             error.response.statusText === "Unauthorized") 
             {
                 const refreshToken = localStorage.getItem('refresh_token');
-
                 if (refreshToken){
                     const tokenParts = JSON.parse(atob(refreshToken.split('.')[1]));
 
                     // exp date in token is expressed in seconds, while now() returns milliseconds:
                     const now = Math.ceil(Date.now() / 1000);
-                    console.log(tokenParts.exp);
 
                     if (tokenParts.exp > now) {
                         return axiosInstance
-                        .post('/token/refresh/', {refresh: refreshToken})
+                        .post('api/token/refresh/', {refresh: refreshToken})
                         .then((response) => {
             
                             localStorage.setItem('token', response.data.access);
-                            localStorage.setItem('refresh_token', response.data.refresh);
+                            // localStorage.setItem('refresh_token', response.data.refresh);
             
                             axiosInstance.defaults.headers['Authorization'] = "Bearer " + response.data.access;
                             originalRequest.headers['Authorization'] = "Bearer " + response.data.access;
