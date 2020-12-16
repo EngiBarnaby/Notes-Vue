@@ -107,7 +107,7 @@ export default {
     getters : {
         getUsername : state => state.username,
         getUserStatus : state => state.isLogin,
-        getUserPersonalData : state => state.userPersonalData
+        getUserPersonalData : state => state.userPersonalData,
     }
 
 }

@@ -3,8 +3,8 @@
         <v-row>
             <v-col xs='12' sm="12" md="12" lg="12" xl="12" cols="12" class="mb-5">
                 <v-toolbar
-                color="white"
-                flat
+                    color="white"
+                    flat
                 >
                 <v-btn
                     icon
