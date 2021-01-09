@@ -13,7 +13,7 @@
                             </v-card-title>
                             <v-card-actions>
                                 <router-link
-                                    :to="{ name : 'notes', params : { pk : item.id }}" class="text-decoration-none"
+                                    :to="{ name : 'notes2', params : { pk : item.id }}" class="text-decoration-none"
                                 >
                                     <v-btn
                                         fab
@@ -39,6 +39,7 @@
                                     </v-icon>
                                 </v-btn>
                                 <v-btn
+                                    @click="deleteNoteCategory(item.id)"
                                     fab
                                     dark
                                     small
@@ -73,11 +74,15 @@ data(){
     },
 
     methods : {
-        ...mapActions(["fetchNotesCategories"]),
+        ...mapActions(["fetchNotesCategories", "deleteNoteCategory"]),
         ...mapMutations(["setCurrentCat"]),
 
         setCat(cat){
             this.setCurrentCat(cat)
+        },
+
+        deleteCateegory(pk){
+            this.deleteNoteCategory(pk)
         }
     },
 

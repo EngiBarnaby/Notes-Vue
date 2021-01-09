@@ -26,6 +26,20 @@ const routes = [
         props : true,
       },
       {
+        path : 'notes2',
+        name : "notes2",
+        component : () => import('@/components/note/NoteList2.vue'),
+        props : true,
+        children : [
+          {
+            path : 'note2/NoteId:NoteId',
+            name : "note2",
+            component : () => import('@/components/note/NoteDetail2.vue'),
+            props : true,
+          },
+        ]
+      },
+      {
         path : 'note',
         name : "note",
         component : () => import('@/components/note/NoteDetail.vue'),
@@ -67,7 +81,24 @@ const routes = [
         path : "register",
         name : "register",
         component : () => import('@/components/account/registerUser.vue'),
-      }
+      },
+    ]
+  },
+
+  {
+    path : "/profile",
+    component: () => import('../views/Profile.vue'),
+    children : [
+      {
+        path : "",
+        name : "user-profile",
+        component : () => import('@/components/profile/mainPage'),
+      },
+      {
+        path : "profile-stats",
+        name : "profile-stats",
+        component : () => import('@/components/profile/profileStats'),
+      },
     ]
   },
 
@@ -80,11 +111,11 @@ const routes = [
         name: 'instanceAxious',
         component: () => import('@/components/test/instanceAxios.vue')
       },
-      {
-        path: 'userProfile',
-        name: 'userProfile',
-        component: () => import('@/components/test/jwt-django-test.vue')
-      },
+      // {
+      //   path: 'userProfile',
+      //   name: 'userProfile',
+      //   component: () => import('@/components/test/jwt-django-test.vue')
+      // },
     ]
   },
 

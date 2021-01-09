@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-row>
+        <!-- <v-row>
             <v-col xs='12' sm="12" md="12" lg="12" xl="12" cols="12" class="mb-5">
                 <v-toolbar
                     color="white"
@@ -32,8 +32,8 @@
                 </v-btn>
                 </v-toolbar>
             </v-col>
-        </v-row>
-        <v-row justify="center">
+        </v-row> -->
+        <!-- <v-row justify="center">
                 <v-btn
                     class="mx-2"
                     fab
@@ -46,43 +46,57 @@
                         mdi-plus
                     </v-icon>
                 </v-btn>
-        </v-row>
-        <v-row justify="center">
-            <v-col xs='12' sm="12" md="10" lg="10" xl="10" cols="12">
-                <v-expansion-panels>
-                    <NoteDetail 
-                        v-for="note in getNotes"
-                        :key="note.id"
-                        :note="note"
-                    />
-                </v-expansion-panels>
+        </v-row> -->
+        <v-row>
+            <v-col xs='4' sm="4" md="4" lg="4" xl="4" cols="4" class="mt-6">
+                <v-card v-for=" note in getNotes" 
+                        :key="note.id" 
+                        height="200" 
+                        :to="{ name : 'note2', params : {NoteId : note.id}}"
+                        @click="getNotedetail(note.id)"
+                        link
+                        >
+                    <v-card-title>
+                        {{ note.title }}
+                    </v-card-title>
+                    <v-card-subtitle>
+                        {{ note.description }}
+                    </v-card-subtitle>
+                </v-card>
+            </v-col>
+            <v-col xs='8' sm="8" md="8" lg="8" xl="8" cols="8" class="note-detail  mt-6">
+                <router-view></router-view>
             </v-col>
         </v-row>
+        <div class="addBtn">
+            <v-btn
+                class="mx-2"
+                fab
+                large
+                dark
+                color="indigo"
+                :to="{ name : 'add-note'}"
+                >
+                <v-icon dark>
+                    mdi-plus
+                </v-icon>
+            </v-btn>
+        </div>
     </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex'
 
-import NoteDetail from "@/components/note/NoteDetail"
-
 export default {
 
-    props : ["pk"],
-
-    components : {
-        NoteDetail,
-
-    },
-    
-    data(){
-        return {
-            notes : {}
-        }
-    },
-
     methods : {
-        ...mapActions(["fetchNotesSortedByCatgory"]),
+        ...mapActions(["fetchNotesSortedByCatgory", "fetchNoteDetail"]),
+
+        getNotedetail(NoteId){
+            this.fetchNoteDetail(NoteId)
+        },
+
     },
 
     computed : {
@@ -91,8 +105,11 @@ export default {
 
     async mounted(){
         await this.fetchNotesSortedByCatgory(this.getCurrentCat)
-        this.notes = this.getNotes
     }
 
 }
 </script>
+
+<style scoped>
+
+</style>

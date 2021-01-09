@@ -11,7 +11,7 @@ export default {
         notesData : {},
         currentNote : {},
         categoriesData : {},
-        currentCat : '',
+        currentCat : localStorage.getItem("currentCategory") || null,
     },
 
     mutations: {
@@ -29,7 +29,12 @@ export default {
         },
 
         setCurrentCat(state, data){
-            state.currentCat = data
+            localStorage.setItem('currentCategory', data.id)
+            state.currentCat = data.id
+        },
+
+        deleteCategory(state, pk){
+            state.categoriesData = state.categoriesData.filter(i => i.id != pk)
         },
 
         addCategory(state, data){
@@ -37,7 +42,7 @@ export default {
         },
 
         addNote(state, data){
-            state.notesData.push(data)
+            state.notesData.unshift(data)
         }
 
 
@@ -63,6 +68,11 @@ export default {
         async fetchNoteDetail(context, pk){
             let { data } = await axios.get(`api/notes/note/${pk}`)
             context.commit("setNoteData", data)
+            },
+        
+        async deleteNoteCategory(context, pk){
+             await axios.delete(`api/notes/category/${pk}/`)
+             context.commit("deleteCategory", pk)
             },
 
         async addCategoryInBase(context, payload){

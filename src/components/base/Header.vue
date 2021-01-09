@@ -153,8 +153,8 @@ export default {
       ],
 
       profileMenu : [
-                { title : 'Ваш профиль', path : `/profile/`, icon : "mdi-account-circle"},
-                { title : 'Статистика', path : `/profile/`, icon : "mdi-chart-box-outline"},
+                { title : 'Ваш профиль', path : `/profile`, icon : "mdi-account-circle"},
+                { title : 'Статистика', path : `/profile/profile-stats`, icon : "mdi-chart-box-outline"},
             ]
       }
     },

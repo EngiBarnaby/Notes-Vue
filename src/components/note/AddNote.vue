@@ -46,7 +46,7 @@
                         toolbar:
                         'undo redo | formatselect | bold italic backcolor forecolor | \
                         alignleft aligncenter alignright alignjustify | \
-                        bullist numlist outdent indent | codesample | removeformat help'
+                        bullist numlist outdent indent | codesample link | removeformat help'
                     }"
                 />
             </v-col>
@@ -94,7 +94,7 @@ export default {
 
         submitNote(){
             this.addNoteInBase({
-                                "category" : this.category.id,
+                                "category" : this.category,
                                 "title" : this.title, 
                                 "description" : this.description,
                                 "content" : this.content })

@@ -24,6 +24,16 @@
                 color="success">
                 Токен
             </v-btn>
+            <v-btn 
+                @click="GetCategory"
+                color="success">
+                Проверка получения категорий из локала
+            </v-btn>
+            <v-btn 
+                @click="GetCurrentUser"
+                color="success">
+                Текущий юзер
+            </v-btn>
         </div>
     </div>
 </template>
@@ -67,6 +77,14 @@ export default {
         GetToken(){
             console.log(localStorage.getItem("token"));
         },
+
+        GetCategory(){
+            console.log(localStorage.getItem("currentCategory"));
+        },
+
+        GetCurrentUser(){
+            console.log(localStorage.getItem("username"));
+        }
 
     }
 
