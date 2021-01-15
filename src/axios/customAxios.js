@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const baseURL = "http://guarded-beyond-14510/"
+const baseURL = "https://guarded-beyond-14510/"
 
 const axiosInstance = axios.create({
     baseURL : baseURL,
