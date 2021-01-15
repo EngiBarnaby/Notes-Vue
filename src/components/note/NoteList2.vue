@@ -51,7 +51,6 @@
             <v-col xs='4' sm="4" md="4" lg="4" xl="4" cols="4" class="mt-6">
                 <v-card v-for=" note in getNotes" 
                         :key="note.id" 
-                        height="200" 
                         :to="{ name : 'note2', params : {NoteId : note.id}}"
                         @click="getNotedetail(note.id)"
                         link
@@ -62,6 +61,22 @@
                     <v-card-subtitle>
                         {{ note.description }}
                     </v-card-subtitle>
+                    <v-card-actions>
+                        <v-btn
+                            color="deep-purple lighten-1"
+                            text
+                            
+                        >
+                            Delete
+                        </v-btn>
+                        <v-btn
+                            color="deep-purple lighten-1"
+                            text
+                            
+                        >
+                            Edit
+                        </v-btn>
+                    </v-card-actions>
                 </v-card>
             </v-col>
             <v-col xs='8' sm="8" md="8" lg="8" xl="8" cols="8" class="note-detail  mt-6">
@@ -111,5 +126,11 @@ export default {
 </script>
 
 <style scoped>
+
+.addBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 10px; 
+}
 
 </style>

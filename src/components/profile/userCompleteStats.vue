@@ -44,8 +44,9 @@ export default {
     ...mapActions(["fetchUserStats"]),
 
     setup(){
-      this.chartdata.labels = Object.keys(this.getUserStats)
-      this.chartdata.datasets[0].data = Object.values(this.getUserStats)
+      let completeTask = this.getUserStats['task_complete']
+      this.chartdata.labels = Object.keys(completeTask)
+      this.chartdata.datasets[0].data = Object.values(completeTask)
     }
 
   },

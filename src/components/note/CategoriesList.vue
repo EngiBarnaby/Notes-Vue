@@ -28,7 +28,7 @@
                                     </v-btn>
                                 </router-link>
                                 <v-spacer></v-spacer>
-                                <v-btn
+                                <!-- <v-btn
                                     fab
                                     dark
                                     small
@@ -37,13 +37,13 @@
                                     <v-icon dark>
                                         mdi-lead-pencil
                                     </v-icon>
-                                </v-btn>
+                                </v-btn> -->
                                 <v-btn
                                     @click="deleteNoteCategory(item.id)"
                                     fab
                                     dark
                                     small
-                                    color="red accent-2"
+                                    color="grey accent-2"
                                 > 
                                     <v-icon dark>
                                         mdi-trash-can-outline
