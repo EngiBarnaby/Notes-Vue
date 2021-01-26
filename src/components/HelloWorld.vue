@@ -1,5 +1,10 @@
 <template>
   <v-container>
+    <v-btn 
+      @click="getTest"
+      color="success">
+      text
+    </v-btn>
     <v-row justify="center">
       <h2 class="text-center">Сайт предоставляет вести заметки, составлять ToDo лист и собирать статистику о своей эфективности</h2>
     </v-row>
@@ -49,9 +54,19 @@
 </template>
 
 <script>
+  import axiosInst from '@/axios/customAxios'
   export default {
 
     name: 'HelloWorld',
+
+    methods : {
+
+      async getTest(){
+        let {data} = await axiosInst.get("api/notes/api-test")
+        console.log(data);
+      }
+
+    },
 
     data(){
       return {
