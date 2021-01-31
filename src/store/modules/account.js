@@ -51,6 +51,7 @@ export default {
                     resole(response)
                 })
                 .catch( error => {
+                    console.log(error)
                     localStorage.removeItem("token")
                     reject(error)
                 })

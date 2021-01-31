@@ -149,6 +149,7 @@ export default {
         { title : "Главная страница", path : "/", icon : "mdi-home" },
         { title : "ToDo лист", path : "/todo", icon : "mdi-list-status" },
         { title : "Note", path : "/note", icon : "mdi-notebook-edit-outline" },
+        { title : "Projects", path : "/projects", icon : "mdi-cog" },
         { title : "Test", path : "/test", icon : "mdi-content-paste" },
       ],
 
