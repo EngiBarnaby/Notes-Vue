@@ -51,6 +51,10 @@ const routes = [
         component : () => import('@/components/note/AddNote.vue'),
         props : true,
       },
+      {
+        path : "/test-note",
+        component: () => import('@/components/note/TestNote.vue'),
+      }
     ]
   },
 
@@ -74,6 +78,12 @@ const routes = [
         path : "",
         name : "projects",
         component : () => import("../components/project/projectsList.vue")
+      },
+      {
+        path : "project-detail/:projectId",
+        name : "project-detail",
+        component : () => import("../components/project/projectDetail.vue"),
+        props : true,
       }
     ]
   },

@@ -5,21 +5,20 @@
   <v-main>
 
     <!-- Provides the application the proper gutter -->
-    <v-container fluid>
+    <v-container fluid class="pa-0 ma-0">
 
       <!-- If using vue-router -->
       <router-view></router-view>
     </v-container>
   </v-main>
 
-  <v-footer app>
-    <!-- -->
-  </v-footer>
+  
 </v-app>
 </template>
 
 <script>
 import Header from './components/base/Header';
+
 
 export default {
   name: 'App',

@@ -1,5 +1,29 @@
 <template>
-  <v-container>
+  <v-container fluid fill-height class="pa-0">
+    <div class="main-page-first align-center">
+        <div class="main-page-content">
+          <v-row justify="center">
+            <div class="text-h3 mt-10" text-center >
+              Давайте попробуем стать немного продуктивнее
+            </div>
+            <div class="text-h5 mt-5" text-center >
+              Сайт ставит своей целью сделать нашу жинь немного организованее 
+            </div>
+          </v-row>
+        </div>
+    </div>
+    <v-carousel>
+        <v-carousel-item
+          v-for="(item,i) in items"
+          :key="i"
+
+          reverse-transition="fade-transition"
+          transition="fade-transition"
+      >
+      </v-carousel-item>
+    </v-carousel>
+  </v-container>
+  <!-- <v-container>
     <v-row justify="center">
       <h2 class="text-center">Сайт предоставляет вести заметки, составлять ToDo лист и собирать статистику о своей эфективности</h2>
     </v-row>
@@ -45,7 +69,7 @@
           <h2 class="mx-5">{{ item.title }}</h2>
       </v-row>
     </div>
-  </v-container>
+  </v-container> -->
 </template>
 
 <script>
@@ -88,8 +112,36 @@
           { title : "django-cors-headers" },
         ],
 
+        items: [
+          {
+            src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+          },
+          {
+            src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
+          },
+          {
+            src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
+          },
+          {
+            src : "@/assets/Smart_Rat2.jpg",
+          },
+        ],
+
       }
     }
 
   }
 </script>
+
+<style scoped>
+
+.main-page-first {
+  background-color: rgb(224, 233, 240);
+  height: 450px;
+}
+
+.main-page-content {
+  margin-top: 150px;
+}
+
+</style>
